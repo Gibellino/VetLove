@@ -6,6 +6,7 @@ import controller.GestaoAnimal;
 import controller.GestaoCliente;
 import model.Animal;
 import model.Cliente;
+import model.Ficha;
 
 public class Main {
 
@@ -16,6 +17,7 @@ public class Main {
 		
 		ArrayList<Cliente> cliente = new ArrayList<Cliente>();
 		ArrayList<Animal> animal = new ArrayList<Animal>();
+		ArrayList<Ficha> ficha = new ArrayList<Ficha>(); 
 		
 		new GestaoCliente().addCli(cliente, id);
 		
