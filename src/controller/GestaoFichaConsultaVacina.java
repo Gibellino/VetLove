@@ -88,14 +88,20 @@ public class GestaoFichaConsultaVacina {
 		
 			idA--;
 			
+			System.out.println("TOmate3");
+			
 			Vacina v = addVacina(c, idC, idA);
 			Consulta con = addConsulta(c, idC, idA);
 			
+			System.out.println("TOmate2");
+			
 			c.get(idC).getAnimal().get(idA).getFicha().getVacina().add(v);
 			c.get(idC).getAnimal().get(idA).getFicha().getConsulta().add(con);
-			
+
 			//f.setVacina();
 			//f.setConsulta(con);
+			
+			System.out.println("TOmate");
 			
 			c.get(idC).getAnimal().get(idA).setFicha(f);
 	}
