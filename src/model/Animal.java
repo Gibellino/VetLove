@@ -5,6 +5,7 @@ public class Animal {
 	private int id;
 	private String especie, raca, dataNas;
 	private Ficha ficha;
+	private boolean verifF;
 	
 	public Animal(int id, String especie, String raca, String dataNas) {
 
@@ -12,6 +13,7 @@ public class Animal {
 		this.especie = especie;
 		this.raca = raca;
 		this.dataNas = dataNas;
+		this.verifF = false;
 	}
 
 	public int getId() {
@@ -54,6 +56,14 @@ public class Animal {
 		this.ficha = ficha;
 	}
 
+	public boolean getBol(){
+		return verifF;
+	}
+	
+	public void setBol(){
+		this.verifF = true;
+	}
+	
 	public String toString(){
 		return " ID: " + getId() + "\n" 
 				+"Especie: " + getEspecie() + "\n" 

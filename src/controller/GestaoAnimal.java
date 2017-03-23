@@ -47,8 +47,10 @@ public class GestaoAnimal {
 	
 	public void listarCliAnimal(ArrayList<Cliente> c, int id){
 		
+		System.out.println("Animal Array Size: " + c.get(id).getAnimal().size() );
+		
 		for(int i=0; i<c.get(id).getAnimal().size(); i++){
-			System.out.println(c.get(id).getAnimal().get(i).getId() + " - " + c.get(i).getAnimal().get(i).getEspecie() + " " + c.get(i).getAnimal().get(i).getRaca());
+			System.out.println(c.get(id).getAnimal().get(i).getId() + " - " + c.get(i).getAnimal().get(i).getEspecie() + " " + c.get(i).getAnimal().get(i).getRaca() + "\n");
 		}
 	}
 	

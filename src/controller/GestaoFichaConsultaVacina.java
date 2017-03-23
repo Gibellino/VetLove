@@ -16,7 +16,7 @@ public class GestaoFichaConsultaVacina {
 	public void listarFich(ArrayList<Cliente> c){
 		
 		for(int i=0; i<c.size(); i++){
-			for(int j=0; j<c.get(i).getAnimal().size(); i++){
+			for(int j=0; j<c.get(i).getAnimal().size(); j++){
 				System.out.println(c.get(i).getAnimal().get(j).getRaca());
 				System.out.println(" Ficha:");
 				System.out.println("  Consultas: \n");
@@ -74,35 +74,40 @@ public class GestaoFichaConsultaVacina {
 	
 	public void edFich(ArrayList<Cliente> c){
 		
+		
+		new GestaoCliente().listarCli(c);
+		System.out.printf("Insira o id do dono do animal: ");
+		int idC = read.nextInt();
+		
+		idC--;
+		
+		System.out.println();
+		
+		new GestaoAnimal().listarCliAnimal(c, idC);
+		System.out.printf("Insira o id do animal: ");
+		int idA = read.nextInt();
+	
+		idA--;
+		
+		Vacina v = addVacina(c, idC, idA);
+		Consulta con = addConsulta(c, idC, idA);
+		
+		if(c.get(idC).getAnimal().get(idA).getBol() == false){
+		
 			Ficha f = new Ficha();
-		
-			new GestaoCliente().listarCli(c);
-			System.out.printf("Insira o id do dono do animal: ");
-			int idC = read.nextInt();
 			
-			idC--;
-			
-			new GestaoAnimal().listarCliAnimal(c, idC);
-			System.out.printf("Insira o id do animal: ");
-			int idA = read.nextInt();
-		
-			idA--;
-			
-			System.out.println("TOmate3");
-			
-			Vacina v = addVacina(c, idC, idA);
-			Consulta con = addConsulta(c, idC, idA);
-			
-			System.out.println("TOmate2");
+			c.get(idC).getAnimal().get(idA).setFicha(f);
 			
 			c.get(idC).getAnimal().get(idA).getFicha().getVacina().add(v);
 			c.get(idC).getAnimal().get(idA).getFicha().getConsulta().add(con);
 
-			//f.setVacina();
-			//f.setConsulta(con);
+			c.get(idC).getAnimal().get(idA).setBol();
+		}
+		else{
 			
-			System.out.println("TOmate");
+			c.get(idC).getAnimal().get(idA).getFicha().getVacina().add(v);
+			c.get(idC).getAnimal().get(idA).getFicha().getConsulta().add(con);
 			
-			c.get(idC).getAnimal().get(idA).setFicha(f);
+		}	
 	}
 }
