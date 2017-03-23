@@ -9,7 +9,7 @@ public class GestaoCliente {
 
 	Scanner read = new Scanner(System.in);
 	
-	public void addCli(ArrayList<Cliente> c, int id){
+	public void addCli(ArrayList<Cliente> c){
 		
 		String nome, morada, mail, tlm;
 		
@@ -25,9 +25,8 @@ public class GestaoCliente {
 		System.out.printf("Insira o numero de telemovel do cliente: ");
 		tlm = read.nextLine();
 		
-		c.add(new Cliente(id,nome, morada, mail, tlm));
-		
-		id++;
+		c.add(new Cliente((c.size()),nome, morada, mail, tlm));
+
 	}
 	
 	public void listarCli(ArrayList<Cliente> c){

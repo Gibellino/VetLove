@@ -6,7 +6,7 @@ public class Cliente {
 	
 	private int id;
 	private String nome, morada, email, tlm;
-	private ArrayList<Animal> animal;
+	private ArrayList<Animal> animal = new ArrayList<Animal>();
 	
 	public Cliente(){}
 

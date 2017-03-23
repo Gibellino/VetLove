@@ -3,11 +3,11 @@ package controller;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import model.Animal;
 import model.Cliente;
 import model.Consulta;
-import model.Ficha;
 import model.Vacina;
+import model.Ficha;
+
 
 public class GestaoFichaConsultaVacina {
 	
@@ -38,10 +38,12 @@ public class GestaoFichaConsultaVacina {
 		}
 	}
 
-	public void addVacina(ArrayList<Cliente> c){
+	public Vacina addVacina(ArrayList<Cliente> c, int idC, int idA){
 		
 		String nome, data;
 		float preco;
+		
+		read.nextLine();
 		
 		System.out.printf("Insira o nome da vacina: ");
 		nome = read.nextLine();
@@ -49,19 +51,52 @@ public class GestaoFichaConsultaVacina {
 		System.out.print("Insira o preço da vacina: ");
 		preco = read.nextFloat();
 		
+		read.nextLine();
+		
 		System.out.print("Insira a data da vacina: ");
 		data = read.nextLine();
 		
-		
+		Vacina v = new Vacina(nome,data,preco);
+		return v;
 	}
 	
-	public void addConsulta(){
+	public Consulta addConsulta(ArrayList<Cliente> c, int idC, int idA){
 		
+		System.out.printf("Insira a descricao da consulta: ");
+		String consulta = read.nextLine();
+		
+		System.out.printf("Insira a data da consulta: ");
+		String data = read.nextLine();
+		
+		Consulta con = new Consulta(consulta,data);
+		return con;
 	}
 	
-	public void edFich(ArrayList<Ficha> f, ArrayList<Animal> a, ArrayList<Vacina> v, ArrayList<Consulta> c){
+	public void edFich(ArrayList<Cliente> c){
 		
-		int idA;
+			Ficha f = new Ficha();
+		
+			new GestaoCliente().listarCli(c);
+			System.out.printf("Insira o id do dono do animal: ");
+			int idC = read.nextInt();
 			
+			idC--;
+			
+			new GestaoAnimal().listarCliAnimal(c, idC);
+			System.out.printf("Insira o id do animal: ");
+			int idA = read.nextInt();
+		
+			idA--;
+			
+			Vacina v = addVacina(c, idC, idA);
+			Consulta con = addConsulta(c, idC, idA);
+			
+			c.get(idC).getAnimal().get(idA).getFicha().getVacina().add(v);
+			c.get(idC).getAnimal().get(idA).getFicha().getConsulta().add(con);
+			
+			//f.setVacina();
+			//f.setConsulta(con);
+			
+			c.get(idC).getAnimal().get(idA).setFicha(f);
 	}
 }

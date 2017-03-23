@@ -29,6 +29,8 @@ public class GestaoAnimal {
 		System.out.printf("\nInsira o id do cliente: ");
 		cli = read.nextInt();
 		
+		cli--;
+		
 		c.get(cli).getAnimal().add(new Animal((c.get(cli).getAnimal().size()+1), especie, raca, data));
 	}
 	
@@ -40,6 +42,13 @@ public class GestaoAnimal {
 				System.out.println(c.get(i).getAnimal().get(j).toString());
 				System.out.println();
 			}
+		}
+	}
+	
+	public void listarCliAnimal(ArrayList<Cliente> c, int id){
+		
+		for(int i=0; i<c.get(id).getAnimal().size(); i++){
+			System.out.println(c.get(id).getAnimal().get(i).getId() + " - " + c.get(i).getAnimal().get(i).getEspecie() + " " + c.get(i).getAnimal().get(i).getRaca());
 		}
 	}
 	
