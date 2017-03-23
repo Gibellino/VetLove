@@ -11,7 +11,7 @@ public class GestaoAnimal {
 
 	Scanner read = new Scanner(System.in);
 	
-	public void addAnimal(ArrayList<Animal> a, ArrayList<Cliente> c){
+	public void addAnimal(ArrayList<Cliente> c){
 		
 		int cli;
 		String especie, raca, data;
@@ -29,9 +29,18 @@ public class GestaoAnimal {
 		System.out.printf("\nInsira o id do cliente: ");
 		cli = read.nextInt();
 		
-		a.add(new Animal((a.size()+1), especie, raca, data));
+		c.get(cli).getAnimal().add(new Animal((c.get(cli).getAnimal().size()+1), especie, raca, data));
+	}
+	
+	public void listarAnimal(ArrayList<Cliente> c){
 		
-		c.get(cli).setAnimal(a);
+		for(int i=0; i<c.size(); i++){
+			System.out.println("Cliente " + c.get(i).getNome() + "\n");
+			for(int j=0; j< c.get(i).getAnimal().size(); j++){
+				System.out.println(c.get(i).getAnimal().get(j).toString());
+				System.out.println();
+			}
+		}
 	}
 	
 }

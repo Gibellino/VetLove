@@ -54,5 +54,11 @@ public class Animal {
 		this.ficha = ficha;
 	}
 
+	public String toString(){
+		return " ID: " + getId() + "\n" 
+				+"Especie: " + getEspecie() + "\n" 
+				+ " Raça: " + getRaca() + "\n"
+				+ " Data Nascimento: " + getDataNas();
+	}
 	
 }
