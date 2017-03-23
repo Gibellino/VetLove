@@ -29,8 +29,9 @@ public class GestaoAnimal {
 		System.out.printf("\nInsira o id do cliente: ");
 		cli = read.nextInt();
 		
-		a.add(new Animal((a.size()+1), especie, raca, data, c.get(cli)));
+		a.add(new Animal((a.size()+1), especie, raca, data));
 		
+		c.get(cli).setAnimal(a);
 	}
 	
 }

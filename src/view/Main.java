@@ -6,7 +6,9 @@ import controller.GestaoAnimal;
 import controller.GestaoCliente;
 import model.Animal;
 import model.Cliente;
+import model.Consulta;
 import model.Ficha;
+import model.Vacina;
 
 public class Main {
 
@@ -18,6 +20,8 @@ public class Main {
 		ArrayList<Cliente> cliente = new ArrayList<Cliente>();
 		ArrayList<Animal> animal = new ArrayList<Animal>();
 		ArrayList<Ficha> ficha = new ArrayList<Ficha>(); 
+		ArrayList<Vacina> vacina = new ArrayList<Vacina>();
+		ArrayList<Consulta> consulta = new ArrayList<Consulta>();
 		
 		new GestaoCliente().addCli(cliente, id);
 		

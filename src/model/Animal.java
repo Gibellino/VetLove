@@ -4,16 +4,14 @@ public class Animal {
 
 	private int id;
 	private String especie, raca, dataNas;
-	private Cliente cliente;
 	private Ficha ficha;
 	
-	public Animal(int id, String especie, String raca, String dataNas, Cliente cliente) {
+	public Animal(int id, String especie, String raca, String dataNas) {
 
 		this.id = id;
 		this.especie = especie;
 		this.raca = raca;
 		this.dataNas = dataNas;
-		this.cliente = cliente;
 	}
 
 	public int getId() {
@@ -46,14 +44,6 @@ public class Animal {
 
 	public void setDataNas(String dataNas) {
 		this.dataNas = dataNas;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
 	}
 
 	public Ficha getFicha() {
